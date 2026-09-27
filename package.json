@@ -12,13 +12,13 @@
     "throttling",
     "billing"
   ],
-  "homepage": "https://github.com/your-org/nestjs-quota#readme",
+  "homepage": "https://github.com/Silent-Watcher/nestjs-quota#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/your-org/nestjs-quota.git"
+    "url": "git+https://github.com/Silent-Watcher/nestjs-quota.git"
   },
   "bugs": {
-    "url": "https://github.com/your-org/nestjs-quota/issues"
+    "url": "https://github.com/Silent-Watcher/nestjs-quota/issues"
   },
   "license": "MIT",
   "author": {
