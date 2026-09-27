@@ -1,126 +1,132 @@
 {
-  "name": "nestjs-quota",
-  "version": "0.1.0",
-  "description": "Production-grade API quota enforcement and usage metering for NestJS: multi-scope policies, atomic distributed consumption, idempotency, reservations, and pluggable storage backends.",
-  "keywords": [
-    "nestjs",
-    "quota",
-    "rate-limit",
-    "usage-metering",
-    "api-quota",
-    "redis",
-    "throttling",
-    "billing"
-  ],
-  "homepage": "https://github.com/Silent-Watcher/nestjs-quota#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Silent-Watcher/nestjs-quota.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Silent-Watcher/nestjs-quota/issues"
-  },
-  "license": "MIT",
-  "author": {
-    "email": "backendwithali@gmail.com",
-    "name": "Ali nazari"
-  },
-  "type": "module",
-  "sideEffects": false,
-  "engines": {
-    "node": ">=18.18"
-  },
-  "files": [
-    "dist",
-    "README.md",
-    "LICENSE"
-  ],
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+    "name": "nestjs-quota",
+    "version": "0.1.0",
+    "description": "Production-grade API quota enforcement and usage metering for NestJS: multi-scope policies, atomic distributed consumption, idempotency, reservations, and pluggable storage backends.",
+    "keywords": [
+        "nestjs",
+        "quota",
+        "rate-limit",
+        "usage-metering",
+        "api-quota",
+        "redis",
+        "throttling",
+        "billing"
+    ],
+    "homepage": "https://github.com/Silent-Watcher/nestjs-quota#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Silent-Watcher/nestjs-quota.git"
     },
-    "./nestjs": {
-      "types": "./dist/nestjs/index.d.ts",
-      "import": "./dist/nestjs/index.js",
-      "require": "./dist/nestjs/index.cjs"
+    "bugs": {
+        "url": "https://github.com/Silent-Watcher/nestjs-quota/issues"
     },
-    "./redis": {
-      "types": "./dist/redis/index.d.ts",
-      "import": "./dist/redis/index.js",
-      "require": "./dist/redis/index.cjs"
+    "license": "MIT",
+    "author": {
+        "email": "backendwithali@gmail.com",
+        "name": "Ali nazari"
     },
-    "./package.json": "./package.json"
-  },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "typesVersions": {
-    "*": {
-      "nestjs": [
-        "./dist/nestjs/index.d.ts"
-      ],
-      "redis": [
-        "./dist/redis/index.d.ts"
-      ]
+    "type": "module",
+    "sideEffects": false,
+    "engines": {
+        "node": ">=18.18"
+    },
+    "files": [
+        "dist",
+        "README.md",
+        "LICENSE"
+    ],
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js",
+            "require": "./dist/index.cjs"
+        },
+        "./nestjs": {
+            "types": "./dist/nestjs/index.d.ts",
+            "import": "./dist/nestjs/index.js",
+            "require": "./dist/nestjs/index.cjs"
+        },
+        "./redis": {
+            "types": "./dist/redis/index.d.ts",
+            "import": "./dist/redis/index.js",
+            "require": "./dist/redis/index.cjs"
+        },
+        "./package.json": "./package.json"
+    },
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "typesVersions": {
+        "*": {
+            "nestjs": [
+                "./dist/nestjs/index.d.ts"
+            ],
+            "redis": [
+                "./dist/redis/index.d.ts"
+            ]
+        }
+    },
+    "scripts": {
+        "dev": "tsup --watch",
+        "build": "tsup",
+        "typecheck": "tsc --noEmit -p tsconfig.json",
+        "lint": "eslint src tests",
+        "format": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\"",
+        "format:check": "prettier --check \"src/**/*.ts\" \"tests/**/*.ts\"",
+        "test": "vitest run --project unit --project adapter --project nestjs",
+        "test:watch": "vitest",
+        "test:coverage": "vitest run --coverage",
+        "test:integration": "vitest run --project integration",
+        "test:concurrency": "vitest run --project concurrency",
+        "pack": "npm pack",
+        "publish:dry": "npm publish --dry-run",
+        "prepublishOnly": "npm run build"
+    },
+    "peerDependencies": {
+        "@nestjs/common": "^10.0.0 || ^11.0.0",
+        "@nestjs/core": "^10.0.0 || ^11.0.0",
+        "ioredis": "^5.0.0",
+        "reflect-metadata": "^0.1.13 || ^0.2.0",
+        "rxjs": "^7.0.0"
+    },
+    "peerDependenciesMeta": {
+        "@nestjs/common": {
+            "optional": true
+        },
+        "@nestjs/core": {
+            "optional": true
+        },
+        "ioredis": {
+            "optional": true
+        },
+        "reflect-metadata": {
+            "optional": true
+        },
+        "rxjs": {
+            "optional": true
+        }
+    },
+    "devDependencies": {
+        "@arethetypeswrong/cli": "^0.16.4",
+        "@eslint/js": "^9.9.0",
+        "@nestjs/common": "^10.4.4",
+        "@nestjs/core": "^10.4.4",
+        "@nestjs/platform-express": "^10.4.4",
+        "@nestjs/testing": "^10.4.4",
+        "@types/node": "^20.14.10",
+        "@types/supertest": "^6.0.2",
+        "@vitest/coverage-v8": "^2.1.9",
+        "eslint": "^9.9.0",
+        "eslint-config-prettier": "^9.1.0",
+        "ioredis": "^5.4.1",
+        "prettier": "^3.3.3",
+        "publint": "^0.2.10",
+        "reflect-metadata": "^0.2.2",
+        "rxjs": "^7.8.1",
+        "supertest": "^7.0.0",
+        "tsup": "^8.2.4",
+        "typescript": "^5.5.4",
+        "typescript-eslint": "^8.3.0",
+        "vitest": "^2.1.9"
     }
-  },
-  "scripts": {
-    "dev": "tsup --watch",
-    "build": "tsup",
-    "typecheck": "tsc --noEmit -p tsconfig.json",
-    "lint": "eslint src tests",
-    "format": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\"",
-    "format:check": "prettier --check \"src/**/*.ts\" \"tests/**/*.ts\"",
-    "test": "vitest run --project unit --project adapter --project nestjs",
-    "test:watch": "vitest",
-    "test:coverage": "vitest run --coverage",
-    "test:integration": "vitest run --project integration",
-    "test:concurrency": "vitest run --project concurrency",
-    "pack": "npm pack",
-    "publish:dry": "npm publish --dry-run",
-    "prepublishOnly": "npm run build"
-  },
-  "peerDependencies": {
-    "@nestjs/common": "^10.0.0 || ^11.0.0",
-    "@nestjs/core": "^10.0.0 || ^11.0.0",
-    "ioredis": "^5.0.0",
-    "reflect-metadata": "^0.1.13 || ^0.2.0",
-    "rxjs": "^7.0.0"
-  },
-  "peerDependenciesMeta": {
-    "@nestjs/common": { "optional": true },
-    "@nestjs/core": { "optional": true },
-    "ioredis": { "optional": true },
-    "reflect-metadata": { "optional": true },
-    "rxjs": { "optional": true }
-  },
-  "devDependencies": {
-    "@arethetypeswrong/cli": "^0.16.4",
-    "@eslint/js": "^9.9.0",
-    "@nestjs/common": "^10.4.4",
-    "@nestjs/core": "^10.4.4",
-    "@nestjs/platform-express": "^10.4.4",
-    "@nestjs/testing": "^10.4.4",
-    "@types/node": "^20.14.10",
-    "@types/supertest": "^6.0.2",
-    "@vitest/coverage-v8": "^2.1.9",
-    "eslint": "^9.9.0",
-    "eslint-config-prettier": "^9.1.0",
-    "ioredis": "^5.4.1",
-    "prettier": "^3.3.3",
-    "publint": "^0.2.10",
-    "reflect-metadata": "^0.2.2",
-    "rxjs": "^7.8.1",
-    "supertest": "^7.0.0",
-    "tsup": "^8.2.4",
-    "typescript": "^5.5.4",
-    "typescript-eslint": "^8.3.0",
-    "vitest": "^2.1.9"
-  },
-  "publishConfig": {
-    "access": "public",
-    "provenance": true
-  }
 }
